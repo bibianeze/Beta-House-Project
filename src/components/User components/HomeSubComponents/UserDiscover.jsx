@@ -11,6 +11,8 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import axios from 'axios';
 import Loading from "../../Loading"
+import { formatPrice } from "../../../utils/helpers";
+
 const CustomPrevArrow = (props) => (
     <div
       className="custom-arrow custom-prev-arrow"
@@ -118,33 +120,33 @@ const UserDiscover = () => {
   return (
     <section className='userdiscover-cover mt-5 '>
         <h1 className='text-center discoverH1' >Discover Our Popular Properties</h1>
+            {/* <CustomPrevArrow/> */}
             <Slider {...settings} className=' mt-5 '>
-            <CustomPrevArrow/>
             {discover.map((dis)=>{
                 const {_id, media: {images}, title, location, price, bedroom, bathroom, squareFeet} = dis ;
-                return<div className="cards"  key={_id}>
-                         
-                         <img src={images[0]} alt={title} /> 
-                         <div className='card-bottom'>
-                             <h4>{title}</h4>
-                             <h4>{price}</h4>
-                             <div className="features">
-                                <p>{bedroom}</p>
-                                <div className='userdiscover-line'></div>
-                                <p>{bathroom}</p>
-                                <div className='userdiscover-line'></div>
-                                <p>{squareFeet}</p>
-                             </div>
-                             <div className="location">
-                             <MdLocationOn size={22} />
-                             <span>{location}</span>
-                             </div>
-                         </div>  
-                         
+                return (
+                  <div className="cards" key={_id}>
+                    <img src={images[0]} alt={title} />
+                    <div className="card-bottom">
+                      <h4>{title}</h4>
+                      <h4>{formatPrice(price)}</h4>
+                      <div className="features">
+                        <p>{bedroom}</p>
+                        <div className="userdiscover-line"></div>
+                        <p>{bathroom}</p>
+                        <div className="userdiscover-line"></div>
+                        <p>{squareFeet}</p>
                       </div>
+                      <div className="location">
+                        <MdLocationOn size={22} />
+                        <span>{location}</span>
+                      </div>
+                    </div>
+                  </div>
+                );
             })}
-            <CustomNextArrow/>
             </Slider>
+            {/* <CustomNextArrow/> */}
     </section>
   )
 }

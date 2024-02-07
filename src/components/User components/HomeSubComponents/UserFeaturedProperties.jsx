@@ -16,6 +16,7 @@ import { AiFillPicture } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../Loading";
+import {formatPrice} from "../../../utils/helpers"
 
 
 const UserFeaturedProperties = () => {
@@ -64,7 +65,7 @@ const UserFeaturedProperties = () => {
                 <div className="forSale">For sale</div>
                 <div className="properties-image">
                   <img src={images[0]} alt="Properties Image" />
-                   <div className="inner-icons">
+                  <div className="inner-icons">
                     <Link to={`/properties/${_id}`}>
                       <GrLink className="icon" />
                     </Link>
@@ -75,7 +76,7 @@ const UserFeaturedProperties = () => {
                       <AiFillPicture className="icon" />
                     </Link>
                   </div>
-                 </div>
+                </div>
 
                 <div className="card-content">
                   <div className="card-title">{title}</div>
@@ -100,7 +101,7 @@ const UserFeaturedProperties = () => {
 
                   <div className="price-icon">
                     <div className="price difft">
-                      <span>{price}</span>
+                      <span>{formatPrice(price)}</span>
                     </div>
 
                     <div className="share-like-icons">
