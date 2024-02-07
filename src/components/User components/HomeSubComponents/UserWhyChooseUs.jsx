@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../../styles/User Styles/USerWhyChooseUs.css";
+import "../../../styles/User Styles/UserWhyChooseUs.css";
 import houseKey from "../../../assets/images/houseKey.png"
 import handshake from "../../../assets/images/handShake.png"
 import camera from "../../../assets/images/Camera.png"
