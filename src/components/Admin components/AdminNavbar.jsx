@@ -32,7 +32,7 @@ const handleSearch = (e) =>{
             {area.pathname === "/admin/properties" ? <form onSubmit={handleSearch} className="headerSearchWrapper d-flex align-items-center">
               <input type="text" placeholder="Search Here" value={search} onChange={(e)=> setSearch (e.target.value)} />
               <IoSearch className="headerSearchIcon" />
-            </form> : <h1 className="text-sucess display-6 ">Welcome</h1>}
+            </form> : <h1 className="text-sucess display-6 ">Welcome Admin</h1>}
           </div>
         </div>
 

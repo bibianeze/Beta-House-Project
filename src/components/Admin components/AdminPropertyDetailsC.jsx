@@ -86,7 +86,7 @@ const AdminPropertyDetailsComponent = () => {
   return (
     <>
       <div className="p-lg-2 p-3 w-100">
-        <ToastContainer/>
+        <ToastContainer />
         <div className="d-flex flex-md-row flex-column-reverse justify-content-between py-3">
           <div className="d-flex gap-2 fs-4 align-items-center">
             <Link to="/admin/properties">
@@ -113,13 +113,24 @@ const AdminPropertyDetailsComponent = () => {
           </div>
 
           <div>
-            <Link to={`/admin/edit/${propertyId}`}>
+            <Link
+              to={`/admin/edit/${propertyId}`}
+              disabled
+              onClick={(e) => e.preventDefault()}
+              style={{ cursor: "not-allowed" }}
+            >
               {" "}
-              <button className="btn bg-success text-white fw-semibold me-2">
-                Edit
-              </button>{" "}
+              <button
+                className="btn bg-success text-white fw-semibold me-2"
+                disabled
+                style={{ cursor: "not-allowed" }}
+                
+              >Edit</button>{" "}
             </Link>
-            <button onClick={handleSold} className="btn border border-success text-success fw-semibold ">
+            <button
+              onClick={handleSold}
+              className="btn border border-success text-success fw-semibold "
+            >
               Unlist Property
             </button>
           </div>
@@ -165,9 +176,6 @@ const AdminPropertyDetailsComponent = () => {
                   {" "}
                   <FaNetworkWired /> {property.tags}
                 </p>
-             
-                  
-                
               </div>
             </div>
 
@@ -192,9 +200,7 @@ const AdminPropertyDetailsComponent = () => {
 
             <div className="border border-black border-2 p-3 rounded-3">
               <p className="fw-bold">Description</p>
-              <p className="text-secondary">
-                {property.description}
-              </p>
+              <p className="text-secondary">{property.description}</p>
             </div>
             <div className="border border-black border-2 p-3 rounded-3 mt-4">
               <p className="fw-bold">Features</p>
@@ -205,10 +211,12 @@ const AdminPropertyDetailsComponent = () => {
                 <li className="text-secondary fs-5">
                   <FaShower /> {property.bathroom} Bathrooms
                 </li>
-                { property.garage && <li className="text-secondary fs-5">
-                  {" "}
-                  <BiSolidCarGarage /> garage
-                </li>}
+                {property.garage && (
+                  <li className="text-secondary fs-5">
+                    {" "}
+                    <BiSolidCarGarage /> garage
+                  </li>
+                )}
                 <li className="text-secondary fs-5">
                   <RiRectangleLine /> {property.squareFeet} Square Feet
                 </li>
@@ -216,14 +224,22 @@ const AdminPropertyDetailsComponent = () => {
             </div>
             <div className="border border-black border-2 p-4 rounded-3 mt-4">
               <p className="fw-bold fs-4">Property Video</p>
-             
-              <ReactPlayer url={property.media.video} controls={true} width={`100%`} />
+
+              <ReactPlayer
+                url={property.media.video}
+                controls={true}
+                width={`100%`}
+              />
             </div>
           </div>
 
           <div className="OtherOptions d-flex flex-xxl-column flex-md-row gap-3 w-100">
             <div className="d-flex w-100 flex-column justify-content-center align-items-center gap-2 border border-2 border-black p-3 rounded-4">
-              <img className="avatar" src={property.salesSupport.avatar} alt="" />
+              <img
+                className="avatar"
+                src={property.salesSupport.avatar}
+                alt=""
+              />
               <h2 className="text-center fs-4">{property.salesSupport.name}</h2>
               <p className="text-secondary">Sales Support</p>
               <button className="btn bg-black text-white fw-semibold fs-6">
@@ -239,10 +255,16 @@ const AdminPropertyDetailsComponent = () => {
                 Old Property? Would you like to delete this property or mark as
                 sold?
               </h2>
-              <button onClick={handleSold} className="btn bg-success text-white fw-semibold fs-5 ">
+              <button
+                onClick={handleSold}
+                className="btn bg-success text-white fw-semibold fs-5 "
+              >
                 Mark As Sold
               </button>
-              <button onClick={handleDelete} className="btn border border-success text-success fw-semibold">
+              <button
+                onClick={handleDelete}
+                className="btn border border-success text-success fw-semibold"
+              >
                 Delete Property
               </button>
             </div>
